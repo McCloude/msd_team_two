@@ -1,6 +1,10 @@
 package com.bah.msd.config;
 
-//TODO Declare as a Spring configuration class
-//TODO Import SpringRepositoryConfig and SpringServicesConfig classes
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.context.annotation.Import;
+
+@SpringBootConfiguration
+//@Import( {SpringRepositoryConfig.class, SpringServicesConfig.class})
+@Import( {SpringServicesConfig.class})
 public class SpringConfig {
 }

@@ -4,20 +4,19 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-	 @Override
-	  protected String[] getServletMappings() {
-		//TODO Fill in URI for DispatcherServlet of /api/*  
-	    return new String[] { "TODO" };	
-	  }
-	  
-	  @Override
-	  protected Class<?>[] getRootConfigClasses() {
-	    return new Class<?>[] { SpringConfig.class };
-	  }
+	@Override
+	protected String[] getServletMappings() {
+		return new String[] { "/api/*" };
+	}
 
-	  @Override
-	    protected Class<?>[] getServletConfigClasses() {
-	  return new Class<?>[] { WebConfig.class };
-	  }
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		return new Class<?>[] { SpringConfig.class };
+	}
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		return new Class<?>[] { WebConfig.class };
+	}
 
 }

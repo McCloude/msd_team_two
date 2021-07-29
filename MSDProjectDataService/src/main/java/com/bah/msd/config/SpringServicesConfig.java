@@ -1,10 +1,16 @@
 package com.bah.msd.config;
 
-//TODO Declare as a configuration class
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+
+import com.bah.msd.persistence.AccountRepository;
+
+@Configuration
 public class SpringServicesConfig {
 
-	//TODO Inject the repository
+//	@Autowired
+//	private AccountRepository repo;
 
-	//TODO Declare the customer account service bean
-
+	// TODO Declare the customer account service bean
+	
 }
