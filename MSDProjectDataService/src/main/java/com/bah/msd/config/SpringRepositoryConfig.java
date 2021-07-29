@@ -1,10 +1,8 @@
 package com.bah.msd.config;
 
+//TODO Declare as a configuration class
 public class SpringRepositoryConfig {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	//TODO Declare the stock account repository bean
 
 }

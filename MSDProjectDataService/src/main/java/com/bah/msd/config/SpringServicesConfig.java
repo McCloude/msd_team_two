@@ -1,10 +1,10 @@
 package com.bah.msd.config;
 
+//TODO Declare as a configuration class
 public class SpringServicesConfig {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	//TODO Inject the repository
 
-	}
+	//TODO Declare the customer account service bean
 
 }

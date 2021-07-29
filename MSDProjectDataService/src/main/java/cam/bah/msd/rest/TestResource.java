@@ -1,10 +1,14 @@
 package cam.bah.msd.rest;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/test")
 public class TestResource {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	@RequestMapping
+	public String getMessage() {
+		return "Web application configuration correct";
 	}
-
 }
