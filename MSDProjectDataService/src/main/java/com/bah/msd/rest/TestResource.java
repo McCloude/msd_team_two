@@ -1,4 +1,4 @@
-package cam.bah.msd.rest;
+package com.bah.msd.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package cam.bah.msd.rest;
+package com.bah.msd.rest;
 
 //TODO Declare the class is a REST Controller
 //TODO Map the entire class to the /accounts URI
