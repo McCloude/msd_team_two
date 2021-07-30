@@ -20,9 +20,6 @@ public class Registration {
 		this.registrationDate = registrationDate;
 		this.notes = notes;
 	}
-	public String toJSON(){
-		return "{\"id:\"" + id + ", \"event_id:\"" + eventId + ", \"customer_id:\"" + customerId + ", \"registration_date:\"" + registrationDate + " \"notes:\"" + notes +"}";
-	}
 
 	public long getId() {
 		return id;
@@ -62,5 +59,11 @@ public class Registration {
 
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+
+	@Override
+	public String toString() {
+		return "Registration [id=" + id + ", eventId=" + eventId + ", customerId=" + customerId + ", registrationDate="
+				+ registrationDate + ", notes=" + notes + "]";
 	}
 }

@@ -16,10 +16,6 @@ public class Event {
 		this.description = description;
 	}
 
-	public String toJSON(){
-		return "{\"id:\"" + id + ", \"code:\"" + code + ", \"title:\"" + title + ", \"description:\"" + description + " }";
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -51,6 +47,9 @@ public class Event {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", code=" + code + ", title=" + title + ", description=" + description + "]";
+	}
 }
