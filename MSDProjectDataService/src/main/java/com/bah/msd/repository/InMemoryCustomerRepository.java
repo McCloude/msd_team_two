@@ -1,43 +1,77 @@
 package com.bah.msd.repository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.bah.msd.domain.Customer;
 
-//@Component
-//@Repository
 public class InMemoryCustomerRepository {
 	
-	private List<Customer> customerList = new ArrayList<>();
+	private int maxSearchResults = 30;
+	
+	private List<Customer> customerData = new ArrayList<>(Arrays.asList(
+		new Customer(1, "Nicholas", "pass", "nichloa@bah.com"),
+		new Customer(2, "Alisha", "pass", "alisha@bah.com"),
+		new Customer(3, "Carsen", "pass", "carsen@bah.com"),
+		new Customer(4, "Julia", "pass", "julie@bah.com"),
+		new Customer(5, "Joel", "pass", "joel@bah.com"),
+		new Customer(6, "Kimberly", "pass", "kimberly@bah.com"),
+		new Customer(7, "Kyle", "pass", "kyle@bah.com"),
+		new Customer(8, "Emily", "pass", "emily@bah.com")));
+		
+	public List<Customer> getCustomerData() {
+		return customerData;
+	}
+	
+	public void setCustomerData(List<Customer> customerData) {
+		this.customerData = customerData;
+	}
+	
+	public int getMaxSearchResults() {
+		return maxSearchResults;
+	}
+	
+	public void setMaxSearchResults(int maxSearchResults) {
+		this.maxSearchResults = maxSearchResults;
+	}
+	
+	public Customer findById(Long id) {
+		return findAll().stream()
+				.filter(customer -> customer.getId() == id)
+				.collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.isEmpty() ? null : list.get(0)));
+	}
+	
+	public Collection<Customer> findByName(String name) {
+	    return findAll().stream()
+	            .filter(customer -> customer.getName().equalsIgnoreCase(name))
+	            .collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.size() <= maxSearchResults ? list : list.subList(0, maxSearchResults)));		
+	}
+	
+	public Collection<Customer> findByEmail(String email) {
+	    return findAll().stream()
+	            .filter(customer -> customer.getEmail().equalsIgnoreCase(email))
+	            .collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.size() <= maxSearchResults ? list : list.subList(0, maxSearchResults)));		            
+	}
 
-	public InMemoryCustomerRepository() {
-		Customer c1 = new Customer(1, "Nicholas", "pass", "nichloa@bah.com");
-		Customer c2 = new Customer(2, "Alisha", "pass", "alisha@bah.com");
-		Customer c3 = new Customer(3, "Carsen", "pass", "carsen@bah.com");
-		Customer c4 = new Customer(4, "Julia", "pass", "julie@bah.com");
-		Customer c5 = new Customer(5, "Joel", "pass", "joel@bah.com");
-		Customer c6 = new Customer(6, "Kimberly", "pass", "kimberly@bah.com");
-		Customer c7 = new Customer(7, "Kyle", "pass", "kyle@bah.com");
-		Customer c8 = new Customer(8, "Emily", "pass", "emily@bah.com");
-		
-		this.customerList.add(c1);
-		this.customerList.add(c2);
-		this.customerList.add(c3);
-		this.customerList.add(c4);
-		this.customerList.add(c5);
-		this.customerList.add(c6);
-		this.customerList.add(c7);
-		this.customerList.add(c8);
-		
+	public Collection<Customer> findAll() {
+		return Collections.unmodifiableCollection(customerData);
 	}
-	
-	public List<Customer> getCustomerList() {
-		return customerList;
+
+	public long count() {
+		return customerData.size();
 	}
-	
-	public void setCustomerList(ArrayList<Customer> customerList) {
-		this.customerList = customerList;
+
+	public Customer save(Customer customer) {
+		// Not implemented
+		return null;
+	}
+
+	public void delete(Customer customer) {
+		// Not implemented
 	}
 
 }

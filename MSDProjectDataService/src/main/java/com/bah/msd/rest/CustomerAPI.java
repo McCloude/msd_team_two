@@ -20,20 +20,22 @@ public class CustomerAPI {
 
 	@GetMapping
 	public Collection<Customer> getAll() {
-		return repo.getCustomerList();
+		return repo.findAll();
 	}
 
 	@GetMapping("/{customerId}")
 	public Customer getCustomerById(@PathVariable("customerId") long id) {
-		
-		Collection<Customer> customers = getAll();
-		for (Customer customer : customers) {
-			if (customer.getId() == id) {
-				return customer;
-			}
-		}
-		return null;
-		
+		return repo.findById(id);
+	}
+	
+	@GetMapping("/name/{customerName}")
+	public Collection<Customer> getCustomerByName(@PathVariable("customerName") String name) {
+		return repo.findByName(name);
+	}
+	
+	@GetMapping("/email/{customerEmail}")
+	public Collection<Customer> getCustomerByEmail(@PathVariable("customerEmail") String email) {
+		return repo.findByEmail(email);
 	}
 
 }
