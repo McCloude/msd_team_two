@@ -1,6 +1,5 @@
 package com.bah.msd.rest;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,15 +34,6 @@ public class CustomerAPI {
 		}
 		return null;
 		
-//		Customer customer = null;
-		
-//		Collection<Customer> customers = getAll();
-//		for (int i = 0; i < customers.size(); i++) {
-//			if (((ArrayList<Customer>) customers).get(i).getId() == id) {
-//				customer = ((ArrayList<Customer>) customers).get(i);
-//			}
-//		}
-//		return customer;
 	}
 
 }
