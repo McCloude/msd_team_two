@@ -1,17 +1,15 @@
 package com.bah.msd.repository;
 
 import java.util.ArrayList;
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import com.bah.msd.domain.Customer;
 
 //@Component
-@Repository
+//@Repository
 public class InMemoryCustomerRepository {
 	
-	ArrayList<Customer> customerList = new ArrayList<>();
+	private List<Customer> customerList = new ArrayList<>();
 
 	public InMemoryCustomerRepository() {
 		Customer c1 = new Customer(1, "Nicholas", "pass", "nichloa@bah.com");
@@ -34,7 +32,7 @@ public class InMemoryCustomerRepository {
 		
 	}
 	
-	public ArrayList<Customer> getCustomerList() {
+	public List<Customer> getCustomerList() {
 		return customerList;
 	}
 	
