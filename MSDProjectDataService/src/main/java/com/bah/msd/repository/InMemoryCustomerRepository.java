@@ -3,10 +3,12 @@ package com.bah.msd.repository;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bah.msd.domain.Customer;
 
-@Component
+//@Component
+@Repository
 public class InMemoryCustomerRepository {
 	
 	ArrayList<Customer> customerList = new ArrayList<>();
