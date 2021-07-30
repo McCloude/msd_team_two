@@ -10,7 +10,6 @@ public class Event {
 	}
 	
 	public Event(long id, String code, String title, String description) {
-		super();
 		this.id = id;
 		this.code = code;
 		this.title = title;

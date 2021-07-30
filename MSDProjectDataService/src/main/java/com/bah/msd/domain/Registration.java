@@ -14,7 +14,6 @@ public class Registration {
 	}
 	
 	public Registration(long id, long eventId, long customerId, Date registrationDate, String notes) {
-		super();
 		this.id = id;
 		this.eventId = eventId;
 		this.customerId = customerId;

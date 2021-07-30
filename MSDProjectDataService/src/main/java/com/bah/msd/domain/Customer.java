@@ -12,7 +12,6 @@ public class Customer {
 	}
 	
 	public Customer(long id, String name, String password, String email) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.password = password;

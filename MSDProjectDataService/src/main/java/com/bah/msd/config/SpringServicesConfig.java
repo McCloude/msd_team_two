@@ -3,7 +3,7 @@ package com.bah.msd.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import com.bah.msd.persistence.AccountRepository;
+import com.bah.msd.persistence.InMemoryRepository;
 
 @Configuration
 public class SpringServicesConfig {
