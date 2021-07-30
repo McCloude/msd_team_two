@@ -2,7 +2,6 @@ package com.bah.msd.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/customers")
 public class CustomerAPI {
-	ArrayList<Customer> list = new ArrayList<Customer>();
+	private ArrayList<Customer> list = new ArrayList<>();
 
 	public CustomerAPI() {
 		Customer c1 = new Customer(1, "Nicholas", "pass", "nichloa@bah.com");
@@ -35,12 +34,11 @@ public class CustomerAPI {
 
 	@GetMapping
 	public Collection<Customer> getAll() {
-		return this.list;
+		return list;
 	}
 
 	@GetMapping("/{customerId}")
 	public Customer getCustomerById(@PathVariable("customerId") long id) {
-		
 		Customer customer = null;
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getId() == id) {
