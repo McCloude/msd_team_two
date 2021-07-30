@@ -43,3 +43,7 @@ gradle-app.setting
 
 # react
 prj-cust-client-initial/
+prj-cust-client-crud/
+prj-cust-client-secured/
+project-react-client/
+
