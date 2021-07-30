@@ -2,18 +2,16 @@ package com.bah.msd.domain;
 
 public class Customer {
 
-	long id;
-	String name;
-	String password;
-	String email;
+	private long id;
+	private String name;
+	private String password;
+	private String email;
 
 	
 	public Customer() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Customer(long id, String name, String password, String email) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.password = password;

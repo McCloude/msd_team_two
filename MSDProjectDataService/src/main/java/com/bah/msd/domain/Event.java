@@ -1,17 +1,15 @@
 package com.bah.msd.domain;
 
 public class Event {
-	int id;
-	String code;
-	String title;
-	String description;
+	private long id;
+	private String code;
+	private String title;
+	private String description;
 	
 	public Event() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Event(int id, String code, String title, String description) {
-		super();
+	public Event(long id, String code, String title, String description) {
 		this.id = id;
 		this.code = code;
 		this.title = title;
@@ -22,11 +20,11 @@ public class Event {
 		return "{\"id:\"" + id + ", \"code:\"" + code + ", \"title:\"" + title + ", \"description:\"" + description + " }";
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

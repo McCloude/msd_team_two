@@ -4,58 +4,56 @@ import java.util.Date;
 
 public class Registration {
 
-	int id;
-	int event_id;
-	int customer_id;
-	Date registration_date;
-	String notes;
+	private long id;
+	private long eventId;
+	private long customerId;
+	private Date registrationDate;
+	private String notes;
 	
 	public Registration() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Registration(int id, int event_id, int customer_id, Date registration_date, String notes) {
-		super();
+	public Registration(long id, long eventId, long customerId, Date registrationDate, String notes) {
 		this.id = id;
-		this.event_id = event_id;
-		this.customer_id = customer_id;
-		this.registration_date = registration_date;
+		this.eventId = eventId;
+		this.customerId = customerId;
+		this.registrationDate = registrationDate;
 		this.notes = notes;
 	}
 	public String toJSON(){
-		return "{\"id:\"" + id + ", \"event_id:\"" + event_id + ", \"customer_id:\"" + customer_id + ", \"registration_date:\"" + registration_date + " \"notes:\"" + notes +"}";
+		return "{\"id:\"" + id + ", \"event_id:\"" + eventId + ", \"customer_id:\"" + customerId + ", \"registration_date:\"" + registrationDate + " \"notes:\"" + notes +"}";
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public int getEvent_id() {
-		return event_id;
+	public long getEventId() {
+		return eventId;
 	}
 
-	public void setEvent_id(int event_id) {
-		this.event_id = event_id;
+	public void setEventId(long eventId) {
+		this.eventId = eventId;
 	}
 
-	public int getCustomer_id() {
-		return customer_id;
+	public long getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
+	public void setCustomerId(long customerId) {
+		this.customerId = customerId;
 	}
 
-	public Date getRegistration_date() {
-		return registration_date;
+	public Date getRegistrationDate() {
+		return registrationDate;
 	}
 
-	public void setRegistration_date(Date registration_date) {
-		this.registration_date = registration_date;
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 
 	public String getNotes() {

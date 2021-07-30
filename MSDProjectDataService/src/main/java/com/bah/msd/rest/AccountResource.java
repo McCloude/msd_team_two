@@ -6,7 +6,7 @@ public class AccountResource {
 
 	//TODO Inject the account service
 
-	//TODO Create a method to retrieve all the stock accounts
+	//TODO Create a method to retrieve all the accounts
 	
 	//TODO Create a method to retrieve a account by id
 	

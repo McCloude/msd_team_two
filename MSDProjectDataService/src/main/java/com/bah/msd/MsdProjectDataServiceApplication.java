@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MsdProjectDataServiceApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Starting service ......");
 		SpringApplication.run(MsdProjectDataServiceApplication.class, args);
 	}
 

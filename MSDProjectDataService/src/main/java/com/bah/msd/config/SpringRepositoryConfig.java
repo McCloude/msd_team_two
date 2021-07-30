@@ -1,8 +1,12 @@
 package com.bah.msd.config;
 
-//TODO Declare as a configuration class
+import org.springframework.context.annotation.Configuration;
+
+import com.bah.msd.domain.CustomerAPI;
+
+@Configuration
 public class SpringRepositoryConfig {
 
-	//TODO Declare the stock account repository bean
-
+	//TODO Declare the customer account repository bean
+	
 }
