@@ -26,14 +26,14 @@ public class EventAPI {
 
 	@GetMapping
 	public Iterable<Event> getAll() {
-		//  Workshop:  Implement a method to retrieve all events
-		return null;
+		//  done:  Implement a method to retrieve all events
+		return repo.findAll();
 	}
 
 	@GetMapping("/{eventId}")
 	public Optional<Event> getEventById(@PathVariable("eventId") long id) {
-		//  Workshop:  Implement a method to retrieve a single event by it's ID
-		return null;
+		//  done:  Implement a method to retrieve a single event by it's ID
+		return repo.findById(id);
 	}
 	
 	@PostMapping
