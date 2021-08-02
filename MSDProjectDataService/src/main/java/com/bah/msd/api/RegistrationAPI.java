@@ -1,10 +1,8 @@
 package com.bah.msd.api;
 
-import java.net.URI;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bah.msd.domain.Registration;
@@ -31,7 +28,7 @@ public class RegistrationAPI {
 	@GetMapping
 	public Iterable<Registration> getAll() {
 		//  Workshop:  Implementation to return existing registrations
-		return null;
+		return repo.findAll();
 	}
 
 	@GetMapping("/{registrationId}")
