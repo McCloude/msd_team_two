@@ -1,5 +1,7 @@
 # msd_team_two
 
+The class is providing new react clients for different stages of development.
+
 unzip react client to your workspace
 
 run npm install
