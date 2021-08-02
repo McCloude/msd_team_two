@@ -2,6 +2,7 @@ package com.bah.msd.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,15 +16,17 @@ public class Registration {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	private long eventId;
-	private long customerId;
+	@Column(name="EVENT_ID")
+	private String eventId;
+	@Column(name="CUSTOMER_ID")
+	private String customerId;
 	private Date registrationDate;
 	private String notes;
 	
 	public Registration() {
 	}
 	
-	public Registration(long id, long eventId, long customerId, Date registrationDate, String notes) {
+	public Registration(long id, String eventId, String customerId, Date registrationDate, String notes) {
 		this.id = id;
 		this.eventId = eventId;
 		this.customerId = customerId;
@@ -39,19 +42,19 @@ public class Registration {
 		this.id = id;
 	}
 
-	public long getEventId() {
+	public String getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(long eventId) {
+	public void setEventId(String eventId) {
 		this.eventId = eventId;
 	}
 
-	public long getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(long customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
 
