@@ -17,16 +17,16 @@ public class Registration {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Column(name="EVENT_ID")
-	private long eventId;
+	private String eventId;
 	@Column(name="CUSTOMER_ID")
-	private long customerId;
+	private String customerId;
 	private Date registrationDate;
 	private String notes;
 	
 	public Registration() {
 	}
 	
-	public Registration(long id, long eventId, long customerId, Date registrationDate, String notes) {
+	public Registration(long id, String eventId, String customerId, Date registrationDate, String notes) {
 		this.id = id;
 		this.eventId = eventId;
 		this.customerId = customerId;
@@ -42,19 +42,19 @@ public class Registration {
 		this.id = id;
 	}
 
-	public long getEventId() {
+	public String getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(long eventId) {
+	public void setEventId(String eventId) {
 		this.eventId = eventId;
 	}
 
-	public long getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(long customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
 
