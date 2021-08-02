@@ -47,8 +47,7 @@ public class CustomerAPI {
 		newCustomer = repo.save(newCustomer);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newCustomer.getId()).toUri();
-		ResponseEntity<?> response = ResponseEntity.created(location).build();
-		return response;
+		return ResponseEntity.created(location).build();
 	}
 
 	// lookupCustomerByName GET
@@ -60,8 +59,7 @@ public class CustomerAPI {
 		while (customers.hasNext()) {
 			Customer currentCustomer = customers.next();
 			if (currentCustomer.getName().equalsIgnoreCase(username)) {
-				ResponseEntity<?> response = ResponseEntity.ok(currentCustomer);
-				return response;
+				return ResponseEntity.ok(currentCustomer);
 			}
 		}
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -75,12 +73,9 @@ public class CustomerAPI {
 		while (customers.hasNext()) {
 			Customer currentCustomer = customers.next();
 			if (currentCustomer.getName().equalsIgnoreCase(username)) {
-				
 				URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 						.buildAndExpand(currentCustomer.getId()).toUri();
-				
-				ResponseEntity<?> response = ResponseEntity.created(location).build();
-				return response;
+				return ResponseEntity.created(location).build();
 			}
 		}
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

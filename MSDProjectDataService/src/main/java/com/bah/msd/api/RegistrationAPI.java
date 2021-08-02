@@ -20,7 +20,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.bah.msd.domain.Registration;
 import com.bah.msd.repository.RegistrationRepository;
 
-
 @RestController
 @RequestMapping("/registrations")
 public class RegistrationAPI {
@@ -30,49 +29,43 @@ public class RegistrationAPI {
 
 	@GetMapping
 	public Iterable<Registration> getAll() {
-		//  Workshop:  Implementation to return existing registrations
 		return repo.findAll();
 	}
 
 	@GetMapping("/{registrationId}")
 	public Optional<Registration> getRegistrationById(@PathVariable("registrationId") long id) {
-		//  Workshop:  Implementation to return a single registration from an ID
 		return repo.findById(id);
 	}
 
 	@PostMapping
 	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri) {
-		//  Workshop:  Implementation to add a new registration; think about data validation and error handling.
-		if (newRegistration.getId() != 0 || newRegistration.getEventId() == null || newRegistration.getCustomerId() == null || newRegistration.getRegistrationDate() == null) {
-			// Reject we'll assign the event id
+		if (newRegistration.getId() != 0 || newRegistration.getEventId() == null
+				|| newRegistration.getCustomerId() == null || newRegistration.getRegistrationDate() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration = repo.save(newRegistration);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newRegistration.getId()).toUri();
-		ResponseEntity<?> response = ResponseEntity.created(location).build();
-		return response;
+		return ResponseEntity.created(location).build();
 	}
 
 	@PutMapping("/{eventId}")
-	public ResponseEntity<?> putRegistration(
-			@RequestBody Registration newRegistration,
-			@PathVariable("eventId") long eventId) 
-	{
-		// Workshop: Implementation to update an event. Think about error handling.
-		if (newRegistration.getEventId() == null || newRegistration.getCustomerId() == null ) { //|| newRegistration.getRegistration_date() == null) {
+	public ResponseEntity<?> putRegistration(@RequestBody Registration newRegistration,
+			@PathVariable("eventId") long eventId) {
+		if (newRegistration.getEventId() == null || newRegistration.getCustomerId() == null) {
+			// || newRegistration.getRegistration_date() == null) {
 			return ResponseEntity.badRequest().build();
-			
+
 		}
 		newRegistration = repo.save(newRegistration);
 		return ResponseEntity.ok().build();
-	}	
-	
+	}
+
 	@DeleteMapping("/{eventId}")
 	public ResponseEntity<?> deleteRegistrationById(@PathVariable("eventId") long id) {
 		repo.deleteById(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-	
-	}	
-	
+
+	}
+
 }
