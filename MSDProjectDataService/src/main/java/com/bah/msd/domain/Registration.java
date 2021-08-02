@@ -10,22 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="REGISTRATIONS")
+@Table(name = "REGISTRATIONS")
 public class Registration {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(name="EVENT_ID")
+	@Column(name = "EVENT_ID")
 	private String eventId;
-	@Column(name="CUSTOMER_ID")
+	@Column(name = "CUSTOMER_ID")
 	private String customerId;
 	private Date registrationDate;
 	private String notes;
-	
+
 	public Registration() {
 	}
-	
+
 	public Registration(long id, String eventId, String customerId, Date registrationDate, String notes) {
 		this.id = id;
 		this.eventId = eventId;

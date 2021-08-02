@@ -2,6 +2,7 @@ package com.bah.msd.logging;
 
 public class ApiLogger {
 	private static String module = "na";
+	@SuppressWarnings("unused")
 	private static boolean on = true;
 
 	public ApiLogger(String module) {
