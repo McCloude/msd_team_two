@@ -57,9 +57,9 @@ public class CustomerAPI {
 		ApiLogger.log("username: " + username);
 		Iterator<Customer> customers = repo.findAll().iterator();
 		while (customers.hasNext()) {
-			Customer currentCustomer = customers.next();
-			if (currentCustomer.getName().equalsIgnoreCase(username)) {
-				return ResponseEntity.ok(currentCustomer);
+			Customer customer = customers.next();
+			if (customer.getName().equalsIgnoreCase(username)) {
+				return ResponseEntity.ok(customer);
 			}
 		}
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -71,11 +71,9 @@ public class CustomerAPI {
 		ApiLogger.log("username: " + username);
 		Iterator<Customer> customers = repo.findAll().iterator();
 		while (customers.hasNext()) {
-			Customer currentCustomer = customers.next();
-			if (currentCustomer.getName().equalsIgnoreCase(username)) {
-				URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-						.buildAndExpand(currentCustomer.getId()).toUri();
-				return ResponseEntity.created(location).build();
+			Customer customer = customers.next();
+			if (customer.getName().equalsIgnoreCase(username)) {
+				return ResponseEntity.ok(customer);
 			}
 		}
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
