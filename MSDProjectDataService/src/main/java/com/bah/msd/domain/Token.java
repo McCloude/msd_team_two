@@ -1,7 +1,7 @@
 package com.bah.msd.domain;
 
 public class Token {
-	String token;
+	private String token;
 
 	public Token(String token) {
 		this.token = token;
