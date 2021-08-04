@@ -1,22 +1,29 @@
-//package com.bah.msd.domain;
-//
-//import org.json.JSONObject;
-//
-//public class CustomerFactory {
-//
-//    //  Workshop:
-//    //
-//    //  Implement a Customer Factory.  Your implementation may change over time as
-//    //  the rest of your application becomes more complex, so don't be afraid to
-//    //  add functionality as opposed to trying to update what you're previously written.
-//	
-//	public static Customer getCustomer(String output) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public static String getCustomerAsJSONString(Customer newCustomer) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//}
+package com.bah.msd.domain;
+
+import org.json.JSONObject;
+
+public class CustomerFactory {
+	
+	public static Customer getCustomer(String jsonString){
+        JSONObject jsonObject = new org.json.JSONObject(jsonString); 
+          
+        long id = (long) jsonObject.get("id");
+        String name = (String) jsonObject.get("name"); 
+        String email = (String) jsonObject.get("email"); 
+        String password = (String) jsonObject.get("password"); 
+		
+		return new Customer(id, name, password, email);
+	}
+	
+	public static String getCustomerAsJSONString(Customer customer) {
+        JSONObject jsonObject = new JSONObject(); 
+        
+        jsonObject.put("name", customer.getName()); 
+        jsonObject.put("email", customer.getEmail());
+        jsonObject.put("password", customer.getPassword());
+        jsonObject.put("id", customer.getId());
+        
+        return jsonObject.toString();
+	}
+
+}
