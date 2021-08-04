@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class App {
 
 	public static void main(String[] args) {
-		System.out.println("Starting service ......");
+		System.out.println("Starting Data Service ......");
 		SpringApplication.run(App.class, args);
 	}
 
