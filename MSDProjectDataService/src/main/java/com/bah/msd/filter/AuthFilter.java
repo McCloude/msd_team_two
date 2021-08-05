@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -22,8 +23,8 @@ import com.bah.msd.util.JWTHelper;
 public class AuthFilter implements Filter {
 
 	// public static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-	private String auth_scope = "com.bah.msd.auth.apis";
-	private String api_scope = "com.bah.msd.data.apis";
+	private static final String AUTH_SCOPE = "com.bah.msd.auth.apis";
+	private static final String API_SCOPE = "com.bah.msd.data.apis";
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -51,11 +52,11 @@ public class AuthFilter implements Filter {
 		} else {
 			// check JWT token
 			String authheader = req.getHeader("authorization");
-			if (authheader != null && authheader.length() > 7 && authheader.startsWith("Bearer")) {
+			if (StringUtils.length(authheader) > 7 && authheader.startsWith("Bearer")) {
 				String jwt_token = authheader.substring(7, authheader.length());
 				if (JWTHelper.verifyToken(jwt_token)) {
-					String request_scopes = JWTHelper.getScopes(jwt_token);
-					if (request_scopes.contains(api_scope) || request_scopes.contains(auth_scope)) {
+					String requestScopes = JWTHelper.getScopes(jwt_token);
+					if (StringUtils.containsAny(requestScopes, API_SCOPE, AUTH_SCOPE)) {
 						chain.doFilter(request, response);
 						return;
 					}
