@@ -1,4 +1,4 @@
-package com.bah.msd.filter;
+package com.bah.msd.util;
 
 import java.io.IOException;
 
@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import com.bah.msd.logging.ApiLogger;
-import com.bah.msd.jwt.JWTHelper;
 
 @Component
 @Order(1)

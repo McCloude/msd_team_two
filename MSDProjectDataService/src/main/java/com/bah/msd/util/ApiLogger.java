@@ -1,4 +1,4 @@
-package com.bah.msd.logging;
+package com.bah.msd.util;
 
 public class ApiLogger {
 	private static String module = "na";

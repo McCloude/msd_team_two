@@ -19,8 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bah.msd.domain.Customer;
-import com.bah.msd.logging.ApiLogger;
 import com.bah.msd.repository.CustomersRepository;
+import com.bah.msd.util.ApiLogger;
 
 @RestController
 @RequestMapping("/customers")
