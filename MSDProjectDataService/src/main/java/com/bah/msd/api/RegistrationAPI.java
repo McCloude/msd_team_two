@@ -40,7 +40,7 @@ public class RegistrationAPI {
 	@PostMapping
 	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri) {
 		if (newRegistration.getId() != 0 || newRegistration.getEventId() == null
-				|| newRegistration.getCustomerId() == null || newRegistration.getRegistrationDate() == null) {
+				|| newRegistration.getCustomerId() == null || newRegistration.getRegistration_date() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration = repo.save(newRegistration);

@@ -20,17 +20,17 @@ public class Registration {
 	private String eventId;
 	@Column(name = "CUSTOMER_ID")
 	private String customerId;
-	private Date registrationDate;
+	private Date registration_date; // must be named like this for the react client
 	private String notes;
 
 	public Registration() {
 	}
 
-	public Registration(long id, String eventId, String customerId, Date registrationDate, String notes) {
+	public Registration(long id, String eventId, String customerId, Date registration_date, String notes) {
 		this.id = id;
 		this.eventId = eventId;
 		this.customerId = customerId;
-		this.registrationDate = registrationDate;
+		this.registration_date = registration_date;
 		this.notes = notes;
 	}
 
@@ -58,12 +58,12 @@ public class Registration {
 		this.customerId = customerId;
 	}
 
-	public Date getRegistrationDate() {
-		return registrationDate;
+	public Date getRegistration_date() {
+		return registration_date;
 	}
 
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
+	public void setRegistration_date(Date registration_date) {
+		this.registration_date = registration_date;
 	}
 
 	public String getNotes() {
@@ -76,7 +76,7 @@ public class Registration {
 
 	@Override
 	public String toString() {
-		return "Registration [id=" + id + ", eventId=" + eventId + ", customerId=" + customerId + ", registrationDate="
-				+ registrationDate + ", notes=" + notes + "]";
+		return "Registration [id=" + id + ", eventId=" + eventId + ", customerId=" + customerId + ", registration_date="
+				+ registration_date + ", notes=" + notes + "]";
 	}
 }
