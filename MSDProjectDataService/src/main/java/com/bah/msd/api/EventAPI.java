@@ -45,7 +45,6 @@ public class EventAPI {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newEvent.getId())
 				.toUri();
 		return ResponseEntity.created(location).build();
-
 	}
 
 	@PutMapping("/{eventId}")

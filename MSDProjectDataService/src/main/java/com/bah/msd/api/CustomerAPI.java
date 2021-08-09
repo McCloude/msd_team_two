@@ -50,7 +50,6 @@ public class CustomerAPI {
 		return ResponseEntity.created(location).build();
 	}
 
-	// lookupCustomerByName GET
 	@GetMapping("/byname/{username}")
 	public ResponseEntity<?> lookupCustomerByNameGet(@PathVariable("username") String username,
 			UriComponentsBuilder uri) {
@@ -65,7 +64,6 @@ public class CustomerAPI {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
 
-	// lookupCustomerByName POST
 	@PostMapping("/byname")
 	public ResponseEntity<?> lookupCustomerByNamePost(@RequestBody String username, UriComponentsBuilder uri) {
 		ApiLogger.log("username: " + username);
